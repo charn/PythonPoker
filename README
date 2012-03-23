@@ -1,0 +1,85 @@
+Course: Programming in Python - Autumn 2009
+University of Helsinki - Department of Computer Science
+
+*********
+* Poker *
+*********
+
+***************
+* How to play *
+***************
+
+What you need
+ - Python (tested with 2.5 and 2.6)
+ - PyGTK
+ - Python Glade (tested with 2.14)
+
+How to run
+----------
+Go to the src directory and run:
+# python Pokeri.py
+
+*************
+* Gamelogic *
+*************
+
+Round in the game:
+ - Choose bet and Deal.
+ - Choose cards you want to hold, other cards will be replaced.
+ - If you have a winning hand you get bet * winfactor ammount of money.
+   Otherwise you lose your bet.
+
+How many times your bet is multiplied if you win.
+
+Times : Type of win
+1 : pair
+2 : two pairs
+3 : three of a kind
+4 : straight
+5 : flush
+6 : full house
+7 : four of a kind
+8 : straight flush
+
+Gamestates:
+1 : Choose bet and Deal.
+2 : Choose cards you want to hold.
+3 : Round ended.
+4 : Ran out of money. GAME OVER.
+
+*******************
+* Class hierarchy *
+*******************
+
+Poker.py - Main program
+
+Poker
+    Model
+        Card (Card.py)
+        Deck (Deck.py)
+        Hand (Hand.py)
+        WinChecker (WinChecker.py)
+        Test
+            CardTest (CardTest.py)
+            DeckTest (DeckTest.py)
+            HandTest (HandTest.py)
+            WinCheckerTest (WinChecker.py)
+    Controller
+        GameController (GameController.py)
+    View
+        PokerGladeUI (PokerPyGtkUI.py)
+        
+***************
+* Development *
+***************
+
+The architecture is a common MVC -architecture.
+The graphical interface is done with Passive view -designpattern where
+the controller handles responses to user events and also does all the updating
+of the view. With this designpattern theres no dependency between the model and
+the view.
+
+Userinterface was made with Glade.
+
+Unittesting was done for all the classes in the Model package. Systemtesting
+for View and Controller was done by playing.
