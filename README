@@ -83,3 +83,6 @@ Userinterface was made with Glade.
 
 Unittesting was done for all the classes in the Model package. Systemtesting
 for View and Controller was done by playing.
+
+You can run unittests with:
+python -m unittest discover src/ '*Test.py'
